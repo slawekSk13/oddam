@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ButtonStyled = styled.button`
-  width: ${props => props.big ? '30%' : 'auto'};
+  width: ${props => props.big ? '35%' : 'auto'};
   font-weight: 300;
   font-size: ${props => props.big ? "2.5rem" : (props.small ? "1rem" : (props.medium ? "1.8rem" : "1.3rem"))};
   text-transform: ${props => props.big ? "uppercase" : "none"};
@@ -10,6 +10,7 @@ const ButtonStyled = styled.button`
   padding: ${props => props.big ? "1rem 2rem" : (props.small ? ".5rem 1rem" : "0.8rem 1rem")};
   color: ${props => props.small ? props.colors.backgroundSecondaryColor : props.colors.fontColor};
   text-align: center;
+  margin: 0 .5rem;
   transition: .4s;
   &:hover {
     cursor: pointer;
