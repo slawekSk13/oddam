@@ -2,12 +2,12 @@ import {ButtonStyled} from "./Button.styles";
 import {ColorTheme} from "../../utilities/ColorTheme";
 import propTypes from 'prop-types'
 
-const Button = ({big, small, text}) => {
+const Button = ({big, medium, small, text}) => {
     return (
         <ColorTheme.Consumer>
             {colors =>
                 (
-                    <ButtonStyled big={big} small={small} colors={colors}>{text}</ButtonStyled>
+                    <ButtonStyled big={big} medium={medium} small={small} colors={colors}>{text}</ButtonStyled>
                 )}</ColorTheme.Consumer>)
 }
 
@@ -17,12 +17,15 @@ Button.propTypes = {
     /** styling props */
     big: propTypes.bool,
     /** styling props */
+    medium: propTypes.bool,
+    /** styling props */
     small: propTypes.bool
 }
 
 Button.defaultProps = {
     text: 'Button',
     big: false,
+    medium: false,
     small: false
 }
 

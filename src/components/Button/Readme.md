@@ -1,5 +1,6 @@
 ``` js
 <Button big text='big' />
-<Button text='medium' />
+<Button text='default' />
+<Button medium text='medium' />
 <Button small text='small' />
 ```
