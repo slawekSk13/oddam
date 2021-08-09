@@ -2,13 +2,17 @@ import {ButtonStyled} from "./Button.styles";
 import {ColorTheme} from "../../utilities/ColorTheme";
 import propTypes from 'prop-types';
 
-const Button = ({big, medium, small, text, width}) => {
+const Button = ({big, medium, small, text, width, onClick}) => {
     return (
         <ColorTheme.Consumer>
             {colors =>
                 (
-                    <ButtonStyled width={width} big={big} medium={medium} small={small} colors={colors}>{text}</ButtonStyled>
+                    <ButtonStyled width={width} big={big} medium={medium} small={small} colors={colors} onClick={onClick} >{text}</ButtonStyled>
                 )}</ColorTheme.Consumer>)
+}
+
+const defaultFunc = (e) => {
+    console.log(e.target.innerText);
 }
 
 Button.propTypes = {
@@ -21,7 +25,9 @@ Button.propTypes = {
     /** styling props */
     small: propTypes.bool,
     /** custom width value */
-    width: propTypes.string
+    width: propTypes.string,
+    /** function triggered on click */
+    onClick: propTypes.func
 }
 
 Button.defaultProps = {
@@ -29,7 +35,8 @@ Button.defaultProps = {
     big: false,
     medium: false,
     small: false,
-    width: ''
+    width: '',
+    onClick: (e) => defaultFunc(e)
 }
 
 export {Button}
