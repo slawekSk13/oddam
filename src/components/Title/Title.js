@@ -1,6 +1,7 @@
 import {TitleStyled} from './Title.styles';
 import {ColorTheme} from "../../utilities/ColorTheme";
 import image from '../../assets/Decoration.svg';
+import propTypes from 'prop-types';
 
 const Title = ({text, anotherText}) => {
     const divStyle = {
@@ -22,6 +23,13 @@ const Title = ({text, anotherText}) => {
             </div>)}
         </ColorTheme.Consumer>
     )
+}
+
+Title.propTypes = {
+    /** text to show on first line */
+    text: propTypes.string,
+    /** text to show on second line */
+    AnotherText: propTypes.string
 }
 
 export {Title}

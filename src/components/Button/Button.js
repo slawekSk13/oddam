@@ -1,6 +1,6 @@
 import {ButtonStyled} from "./Button.styles";
 import {ColorTheme} from "../../utilities/ColorTheme";
-import propTypes from 'prop-types'
+import propTypes from 'prop-types';
 
 const Button = ({big, medium, small, text}) => {
     return (
