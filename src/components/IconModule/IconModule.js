@@ -8,7 +8,7 @@ import icon1 from '../../assets/Icon-1.svg';
 const IconModule = ({icon, headerText, paragraphText}) => {
     return (
         <IconModuleStyled>
-        <img src={icon} />
+        <img src={icon} alt='' />
             <CounterHeader text={headerText} />
             <hr style={{width: '40%', margin: '0 0 1rem'}}/>
             <Paragraph text={paragraphText} />
