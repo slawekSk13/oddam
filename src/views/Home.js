@@ -4,6 +4,8 @@ import {Main} from './Main';
 import {ThreeColumns} from './ThreeColumns';
 import {EasySteps} from "./EasySteps";
 import {AboutUs} from "./AboutUs";
+import {Organisations} from "./Organisations";
+import {Contact} from "./Contact";
 
 const Home = () => {
     const elementStyle = {
@@ -15,8 +17,8 @@ const Home = () => {
             <ThreeColumns/>
             <Element name='idea'><EasySteps/></Element>
             <Element name='aboutus'><AboutUs /></Element>
-            <Element name='organisations'><h1 style={elementStyle}>Fundacje i organizacje</h1></Element>
-            <Element name='contact'><h1 style={elementStyle}>Kontakt</h1></Element>
+            <Element name='organisations'><Organisations /></Element>
+            <Element name='contact'><Contact /></Element>
         </main>
     );
 };

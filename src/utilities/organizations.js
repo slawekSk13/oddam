@@ -77,7 +77,7 @@ const ngos = [
         needs: 'ubrania, jedzenie, ciepłe koce'
     }
 ];
-const localOrganizations = [
+const organizations = [
     {
         name: 'Organizacja lokalna "Dbam o zdrowie',
         goal: 'Pomoc osobom znajdującym się w trudnej sytuacji życiowej',
@@ -95,4 +95,4 @@ const localOrganizations = [
     }
 ];
 
-export {fundations, ngos, localOrganizations}
+export {fundations, ngos, organizations}
