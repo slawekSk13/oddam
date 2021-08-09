@@ -15,7 +15,7 @@ const Main = () => {
     }
     const imageStyle = {
         position: 'absolute',
-        zIndex: '-1',
+        zIndex: '5',
         left: '-550px'
     }
     return (
