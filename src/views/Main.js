@@ -20,7 +20,7 @@ const Main = () => {
         left: '-550px'
     }
     return (
-        <section>
+        <main>
             <img src={heroImage} alt='hero' style={imageStyle} />
         <div style={style}>
             <Title text='Zacznij pomagać!' anotherText=' Oddaj niechciane rzeczy w zaufane ręce'/>
@@ -29,7 +29,7 @@ const Main = () => {
                 <Link to="/logowanie"><Button text='Zorganizuj zbiórkę' big/></Link>
             </Center>
         </div>
-        </section>
+        </main>
     )
 }
 

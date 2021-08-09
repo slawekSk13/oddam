@@ -18,6 +18,10 @@ code {
     monospace;
 }
 
+section {
+padding: 4rem 0;
+}
+
 .active {
   border: 1px solid #3C3C3C;
 }

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ButtonStyled = styled.button`
-  width: ${props => props.big ? '35%' : 'auto'};
+  width: ${props => props.width ? props.width : (props.big ? '35%' : 'auto')};
   font-weight: 300;
   font-size: ${props => props.big ? "2.5rem" : (props.small ? "1rem" : (props.medium ? "1.8rem" : "1.3rem"))};
   text-transform: ${props => props.big ? "uppercase" : "none"};

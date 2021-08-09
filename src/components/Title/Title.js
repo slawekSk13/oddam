@@ -11,7 +11,7 @@ const Title = ({text, anotherText}) => {
         alignItems: 'center'
     }
     const imgStyle = {
-        width: '30%',
+        width: '250px',
         margin: '1rem'
     }
     return (

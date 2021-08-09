@@ -15,7 +15,7 @@ Center.propTypes = {
 }
 
 Center.defaultProps = {
-    width: '25%'
+    width: '20%'
 }
 
 export {Center}

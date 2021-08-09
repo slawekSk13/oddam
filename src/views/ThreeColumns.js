@@ -12,8 +12,7 @@ const ThreeColumns = () => {
         width: '100%',
         backgroundColor: ColorThemeObj.accentColor,
         backgroundImage: `url("${background}")`,
-        justifyContent: 'space-around',
-        padding: '4rem 2rem'
+        justifyContent: 'space-around'
     }
 
     return (
