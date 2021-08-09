@@ -19,17 +19,17 @@ const ThreeColumns = () => {
         <section style={style}>
             <Center>
                 <Counter number={10} />
-                <CounterHeader text='oddanych worków' />
+                <CounterHeader text='oddanych worków' up />
                 <Paragraph text='Lorem ipsum dolor sit amet, consectetur adipisc Pellentesque vel enim a elit viverra elementuma. Aliquam erat volutpat.'/>
             </Center>
             <Center>
                 <Counter number={5} />
-                <CounterHeader text='wspartych organizacji' />
+                <CounterHeader text='wspartych organizacji' up />
                 <Paragraph text='Lorem ipsum dolor sit amet, consectetur adipisc Pellentesque vel enim a elit viverra elementuma. Aliquam erat volutpat.'/>
             </Center>
             <Center>
                 <Counter number={7} />
-                <CounterHeader text='zorganizowanych zbiórek' />
+                <CounterHeader text='zorganizowanych zbiórek' up />
                 <Paragraph text='Lorem ipsum dolor sit amet, consectetur adipisc Pellentesque vel enim a elit viverra elementuma. Aliquam erat volutpat.'/>
             </Center>
         </section>
