@@ -1,17 +1,16 @@
 import {fundations, ngos, organizations} from "../utilities/organizations";
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Title} from "../components/Title/Title";
 import {Button} from "../components/Button/Button";
 import {Center} from "../components/Center/Center";
 import {Paragraph} from "../components/Paragraph/Paragraph";
 
 import ReactPaginate from 'react-paginate';
-// import Pagination from 'rc-pagination';
 
 const Organisations = () => {
-    const [localFundations, setLocalFundations] = useState([...fundations]);
-    const [localNgos, setLocalNgos] = useState([...ngos]);
-    const [localOrganizations, setLocalOrganizations] = useState([...organizations]);
+    const [localFundations] = useState([...fundations]);
+    const [localNgos] = useState([...ngos]);
+    const [localOrganizations] = useState([...organizations]);
 
     const [toShow, setToShow] = useState([...fundations.slice(0, 3)]);
 

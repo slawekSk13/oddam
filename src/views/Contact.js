@@ -22,7 +22,7 @@ const Contact = () => {
     }
     return (
         <div style={style}>
-            <img src={background} style={imgStyle} />
+            <img src={background} style={imgStyle} alt='' />
             <div style={formStyle} >
             <Title text='Skontaktuj się z nami' />
             </div>

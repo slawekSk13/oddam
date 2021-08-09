@@ -23,7 +23,7 @@ const AboutUs = () => {
             <Paragraph text='Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip.' big />
             <img src={signature} alt='signature' style={{margin: '2rem 0 0 60%'}} />
         </div>
-            <img style={{...width}} src={people} />
+            <img style={{...width}} src={people} alt='people' />
         </div>
     )
 }

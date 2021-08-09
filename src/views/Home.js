@@ -8,9 +8,7 @@ import {Organisations} from "./Organisations";
 import {Contact} from "./Contact";
 
 const Home = () => {
-    const elementStyle = {
-        height: '900px'
-    }
+
     return (
         <main>
             <Element name='start'><Main /></Element>

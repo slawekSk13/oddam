@@ -1,7 +1,8 @@
 import {Navigation} from "../components/Navigation/Navigation";
 import {Button} from "../components/Button/Button";
-import {Link} from 'react-router-dom';
-import { Link as LinkScroll } from 'react-scroll'
+import {Link, useLocation} from 'react-router-dom';
+import {Link as LinkScroll} from 'react-scroll'
+
 
 const Menu = () => {
     const style = {
@@ -11,30 +12,34 @@ const Menu = () => {
         padding: '.5rem 0 0 5rem',
         backgroundColor: 'white'
     }
+    const location = useLocation();
+
     return (<div style={style}>
-                <Navigation >
-                    <Link to="/logowanie"><Button small text='Zaloguj'/></Link>
-                    <Link to="/rejestracja"><Button small text='Załóż konto' /></Link>
-                </Navigation>
-                <Navigation>
-                    <LinkScroll activeClass='active' spy={true} spyThrottle={500} smooth={true} duration={500}
-                                offset={-100}
-                                hashSpy={true} to="start"><Link to='/'><Button text='Start'/></Link></LinkScroll>
-                    <LinkScroll activeClass='active' spy={true} spyThrottle={500} smooth={true} duration={500}
-                                offset={-100}
-                                hashSpy={true} to="idea"><Link to='/'><Button text='O co chodzi'/></Link></LinkScroll>
-                    <LinkScroll activeClass='active' spy={true} spyThrottle={500} smooth={true} duration={500}
-                                offset={-100}
-                                hashSpy={true} to="aboutus"><Link to='/'><Button text='O nas'/></Link></LinkScroll>
-                    <LinkScroll activeClass='active' spy={true} spyThrottle={500} smooth={true} duration={500}
-                                offset={-100}
-                                hashSpy={true} to="organisations"><Link to='/'><Button
-                        text='Fundacje i organizacje'/></Link></LinkScroll>
-                    <LinkScroll activeClass='active' spy={true} spyThrottle={500} smooth={true} duration={500}
-                                offset={-100}
-                                hashSpy={true} to="contact"><Link to='/'><Button text='Kontakt'/></Link></LinkScroll>
-                </Navigation>
-            </div>
+            <Navigation>
+                <Link to="/logowanie"><Button small text='Zaloguj'/></Link>
+                <Link to="/rejestracja"><Button small text='Załóż konto'/></Link>
+            </Navigation>
+            {location.pathname === '/' ? <Navigation>
+                <LinkScroll activeClass='active' spy={true} spyThrottle={500} smooth={true} duration={500}
+                            offset={-100}
+                            hashSpy={true} to="start"><Button text='Start'/></LinkScroll>
+                <LinkScroll activeClass='active' spy={true} spyThrottle={500} smooth={true} duration={500}
+                            offset={-100}
+                            hashSpy={true} to="idea"><Button text='O co chodzi'/></LinkScroll>
+                <LinkScroll activeClass='active' spy={true} spyThrottle={500} smooth={true} duration={500}
+                            offset={-100}
+                            hashSpy={true} to="aboutus"><Button text='O nas'/></LinkScroll>
+                <LinkScroll activeClass='active' spy={true} spyThrottle={500} smooth={true} duration={500}
+                            offset={-100}
+                            hashSpy={true} to="organisations"><Button
+                    text='Fundacje i organizacje'/></LinkScroll>
+                <LinkScroll activeClass='active' spy={true} spyThrottle={500} smooth={true} duration={500}
+                            offset={-100}
+                            hashSpy={true} to="contact"><Button text='Kontakt'/></LinkScroll>
+            </Navigation> : <Navigation>
+                <Link to="/#/"><Button text='Start'/></Link>
+            </Navigation>}
+        </div>
 
     )
 }
