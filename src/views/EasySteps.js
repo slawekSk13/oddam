@@ -25,10 +25,12 @@ const EasySteps = () => {
         <section>
             <Title text='Wystarczą 4 proste kroki'/>
             <div style={style}>
-                <IconModule icon={icon1} headerText='Wybierz rzeczy' paragraphText='ubrania, zabawki, sprzęt i inne' />
-                <IconModule icon={icon2} headerText='Spakuj je' paragraphText='skorzystaj z worków na śmieci' />
-                <IconModule icon={icon3} headerText='Zdecyduj komu chcesz pomóc' paragraphText='wybierz zaufane miejsce' />
-                <IconModule icon={icon4} headerText='Zamów kuriera' paragraphText='kurier przyjedzie w dogodnym terminie' />
+                <IconModule icon={icon1} headerText='Wybierz rzeczy' paragraphText='ubrania, zabawki, sprzęt i inne'/>
+                <IconModule icon={icon2} headerText='Spakuj je' paragraphText='skorzystaj z worków na śmieci'/>
+                <IconModule icon={icon3} headerText='Zdecyduj komu chcesz pomóc'
+                            paragraphText='wybierz zaufane miejsce'/>
+                <IconModule icon={icon4} headerText='Zamów kuriera'
+                            paragraphText='kurier przyjedzie w dogodnym terminie'/>
             </div>
             <Center width='100%'>
                 <Link to="/logowanie">
