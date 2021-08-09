@@ -1,14 +1,21 @@
-const Center = ({children}) => {
-    const style = {
-        textAlign: 'center',
-        width: '25%'
-    }
+import {CenterStyled} from './Center.styles';
+import propTypes from 'prop-types'
 
-    return(
-        <div style={style}>
+const Center = ({children, width}) => {
+      return(
+        <CenterStyled width={width}>
             {children}
-        </div>
+        </CenterStyled>
     )
+}
+
+Center.propTypes = {
+    /** width of container*/
+    width: propTypes.string,
+}
+
+Center.defaultProps = {
+    width: '25%'
 }
 
 export {Center}
