@@ -2,10 +2,10 @@ import {LabelStyled} from './Label.styles';
 import {ColorTheme} from '../../utilities/ColorTheme';
 import propTypes from 'prop-types';
 
-const Label = ({text}) => {
+const Label = ({text, id}) => {
     return (
         <ColorTheme.Consumer>
-            {colors => <LabelStyled colors={colors} >{text}</LabelStyled>}
+            {colors => <LabelStyled colors={colors} htmlFor={id}>{text}</LabelStyled>}
         </ColorTheme.Consumer>
     )
 }
