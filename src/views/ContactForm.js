@@ -1,6 +1,9 @@
+import React, {useState} from "react";
+
 import {Input} from '../components/Input/Input';
 import {Label} from '../components/Label/Label';
 import {Button} from "../components/Button/Button";
+import {Title} from "../components/Title/Title";
 
 import {useFormik} from "formik";
 import * as Yup from 'yup';
@@ -8,6 +11,8 @@ import * as Yup from 'yup';
 import {postToAPI} from "../utilities/post";
 
 const ContactForm = () => {
+    const [success, setSuccess] = useState(false);
+
     const formik = useFormik({
         initialValues: {
             name: '',
@@ -22,38 +27,47 @@ const ContactForm = () => {
         onSubmit: values => {
             postToAPI(values);
             formik.resetForm();
+            setSuccess(true);
+            setTimeout(() => {
+                setSuccess(false);
+            }, 5000);
         }
     });
+
     return (
-        <>
+        success ? <Title text='Dziękujemy za kontakt!'/> :
+    <>
+        <Title text='Skontaktuj się z nami'/>
         <form onSubmit={formik.handleSubmit} style={{textAlign: 'right'}}>
             <div className='contact-form-group'>
-            <div className='form-group'>
-                <Label text='Wpisz swoje imię'/>
-                <Input placeholder='Krzysztof' name='name' value={formik.values.name} type='text'
-                       onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+                <div className='form-group'>
+                    <Label text='Wpisz swoje imię'/>
+                    <Input placeholder='Krzysztof' name='name' value={formik.values.name} type='text'
+                           onChange={formik.handleChange} onBlur={formik.handleBlur}/>
 
-            </div>
-            <div className='form-group'>
-                <Label text='Wpisz swój email'/>
-                <Input placeholder='abc@xyz.pl' name='email' value={formik.values.email} type='email'
-                       onChange={formik.handleChange} onBlur={formik.handleBlur}/>
-            </div>
-            <Label text='Wpisz swoją wiadomość'/>
-            <Input
-                placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-                name='message' value={formik.values.message}
-                onChange={formik.handleChange} onBlur={formik.handleBlur} area/>
+                </div>
+                <div className='form-group'>
+                    <Label text='Wpisz swój email'/>
+                    <Input placeholder='abc@xyz.pl' name='email' value={formik.values.email} type='email'
+                           onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+                </div>
+                <Label text='Wpisz swoją wiadomość'/>
+                <Input
+                    placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                    name='message' value={formik.values.message}
+                    onChange={formik.handleChange} onBlur={formik.handleBlur} area/>
             </div>
 
-            <Button text='Wyślij' width={'25%'} onClick={formik.handleSubmit} border />
+            <Button text='Wyślij' width={'25%'} onClick={formik.handleSubmit} border/>
         </form>
-    <div style={{position: 'absolute', width: '150%', right: '110px', textAlign: 'right'}}>
-        {formik.touched.name && formik.errors.name ? <div className='error'>{formik.errors.name}</div> : null}
-        {formik.touched.email && formik.errors.email ? <div className='error'>{formik.errors.email}</div> : null}
-        {formik.touched.message && formik.errors.message ? <div className='error'>{formik.errors.message}</div> : null}
-    </div>
-        </>
+        <div style={{position: 'absolute', width: '150%', right: '110px', textAlign: 'right'}}>
+            {formik.touched.name && formik.errors.name ? <div className='error'>{formik.errors.name}</div> : null}
+            {formik.touched.email && formik.errors.email ? <div className='error'>{formik.errors.email}</div> : null}
+            {formik.touched.message && formik.errors.message ?
+                <div className='error'>{formik.errors.message}</div> : null}
+        </div>
+    </>
+
     )
 }
 
