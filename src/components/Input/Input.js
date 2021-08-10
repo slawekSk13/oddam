@@ -2,10 +2,10 @@ import {InputStyled, TextAreaStyled} from './Input.styles';
 import {ColorTheme} from '../../utilities/ColorTheme';
 import propTypes from 'prop-types';
 
-const Input = ({placeholder, name, value, area}) => {
+const Input = ({placeholder, name, value, onChange, onBlur, type, area}) => {
     return (<ColorTheme.Consumer>
-            {colors => area ? <InputStyled colors={colors} name={name} placeholder={placeholder} value={value}/> :
-                <TextAreaStyled colors={colors} name={name} placeholder={placeholder} value={value} rows={4}/>}
+            {colors => area ? <TextAreaStyled colors={colors} id={name} name={name} placeholder={placeholder} value={value} rows={4} onChange={onChange} onBlur={onBlur}/> :
+                <InputStyled colors={colors} id={name} name={name} placeholder={placeholder} value={value} onChange={onChange} onBlur={onBlur} type={type}/>}
         </ColorTheme.Consumer>
     )
 }

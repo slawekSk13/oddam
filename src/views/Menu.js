@@ -6,6 +6,7 @@ import {Link as LinkScroll} from 'react-scroll'
 
 const Menu = () => {
     const style = {
+        zIndex: 4,
         width: '100%',
         position: 'fixed',
         right: '0',
