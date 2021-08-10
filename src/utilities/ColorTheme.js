@@ -5,7 +5,8 @@ export const ColorThemeObj = {
     titleFontColor: "#5E5322",
     accentColor: "#FAD648",
     fontColor: "#3C3C3C",
-    backgroundSecondaryColor: "#737373"
+    backgroundSecondaryColor: "#737373",
+    placeholderColor: "#3C3C3C26"
 };
 
 export const ColorTheme = React.createContext({
