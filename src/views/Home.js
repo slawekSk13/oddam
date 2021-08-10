@@ -4,7 +4,7 @@ import {Main} from './Main';
 import {ThreeColumns} from './ThreeColumns';
 import {EasySteps} from "./EasySteps";
 import {AboutUs} from "./AboutUs";
-import {Organisations} from "./Organisations";
+import {Organizations} from "./Organizations";
 import {Contact} from "./Contact";
 
 const Home = () => {
@@ -15,7 +15,7 @@ const Home = () => {
             <ThreeColumns/>
             <Element name='idea'><EasySteps/></Element>
             <Element name='aboutus'><AboutUs /></Element>
-            <Element name='organisations'><Organisations /></Element>
+            <Element name='organisations'><Organizations /></Element>
             <Element name='contact'><Contact /></Element>
         </main>
     );

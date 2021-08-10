@@ -1,95 +1,95 @@
 const fundations = [
     {
-        name: 'Fundacja "Dbam o zdrowie',
+        name: 'Fundacja "Dbam o zdrowie"',
         goal: 'Pomoc osobom znajdującym się w trudnej sytuacji życiowej',
         needs: 'ubrania, jedzenie, sprzęt AGD, meble, zabawki'
     },
     {
-        name: 'Fundacja "Dla dzieci',
+        name: 'Fundacja "Dla dzieci"',
         goal: 'Pomoc dzieciom z ubogich rodzin',
         needs: 'ubrania, meble, zabawki'
     },
     {
-        name: 'Fundacja "Bez domu',
+        name: 'Fundacja "Bez domu"',
         goal: 'Pomoc dla osób nie posiadających miejsca zamieszkania',
         needs: 'ubrania, jedzenie, ciepłe koce'
     },
     {
-        name: 'Fundacja "Dbam o zdrowie 2',
+        name: 'Fundacja "Dbam o zdrowie 2"',
         goal: 'Pomoc osobom znajdującym się w trudnej sytuacji życiowej',
         needs: 'ubrania, jedzenie, sprzęt AGD, meble, zabawki'
     },
     {
-        name: 'Fundacja "Dla dzieci 2',
+        name: 'Fundacja "Dla dzieci 2"',
         goal: 'Pomoc dzieciom z ubogich rodzin',
         needs: 'ubrania, meble, zabawki'
     },
     {
-        name: 'Fundacja "Bez domu 2',
+        name: 'Fundacja "Bez domu 2"',
         goal: 'Pomoc dla osób nie posiadających miejsca zamieszkania',
         needs: 'ubrania, jedzenie, ciepłe koce'
     },
     {
-        name: 'Fundacja "Dbam o zdrowie 3',
+        name: 'Fundacja "Dbam o zdrowie 3"',
         goal: 'Pomoc osobom znajdującym się w trudnej sytuacji życiowej',
         needs: 'ubrania, jedzenie, sprzęt AGD, meble, zabawki'
     },
     {
-        name: 'Fundacja "Dla dzieci 3',
+        name: 'Fundacja "Dla dzieci 3"',
         goal: 'Pomoc dzieciom z ubogich rodzin',
         needs: 'ubrania, meble, zabawki'
     },
     {
-        name: 'Fundacja "Bez domu 3',
+        name: 'Fundacja "Bez domu 3"',
         goal: 'Pomoc dla osób nie posiadających miejsca zamieszkania',
         needs: 'ubrania, jedzenie, ciepłe koce'
     }
 ];
 const ngos = [
     {
-        name: 'Organizacja "Dbam o zdrowie',
+        name: 'Organizacja "Dbam o zdrowie"',
         goal: 'Pomoc osobom znajdującym się w trudnej sytuacji życiowej',
         needs: 'ubrania, jedzenie, sprzęt AGD, meble, zabawki'
     },
     {
-        name: 'Organizacja "Dla dzieci',
+        name: 'Organizacja "Dla dzieci"',
         goal: 'Pomoc dzieciom z ubogich rodzin',
         needs: 'ubrania, meble, zabawki'
     },
     {
-        name: 'Organizacja "Bez domu',
+        name: 'Organizacja "Bez domu"',
         goal: 'Pomoc dla osób nie posiadających miejsca zamieszkania',
         needs: 'ubrania, jedzenie, ciepłe koce'
     },
     {
-        name: 'Organizacja "Dbam o zdrowie 2',
+        name: 'Organizacja "Dbam o zdrowie 2"',
         goal: 'Pomoc osobom znajdującym się w trudnej sytuacji życiowej',
         needs: 'ubrania, jedzenie, sprzęt AGD, meble, zabawki'
     },
     {
-        name: 'Organizacja "Dla dzieci 2',
+        name: 'Organizacja "Dla dzieci 2"',
         goal: 'Pomoc dzieciom z ubogich rodzin',
         needs: 'ubrania, meble, zabawki'
     },
     {
-        name: 'Organizacja "Bez domu 2',
+        name: 'Organizacja "Bez domu 2"',
         goal: 'Pomoc dla osób nie posiadających miejsca zamieszkania',
         needs: 'ubrania, jedzenie, ciepłe koce'
     }
 ];
 const organizations = [
     {
-        name: 'Organizacja lokalna "Dbam o zdrowie',
+        name: 'Organizacja lokalna "Dbam o zdrowie"',
         goal: 'Pomoc osobom znajdującym się w trudnej sytuacji życiowej',
         needs: 'ubrania, jedzenie, sprzęt AGD, meble, zabawki'
     },
     {
-        name: 'Organizacja lokalna "Dla dzieci',
+        name: 'Organizacja lokalna "Dla dzieci"',
         goal: 'Pomoc dzieciom z ubogich rodzin',
         needs: 'ubrania, meble, zabawki'
     },
     {
-        name: 'Organizacja lokalna "Bez domu',
+        name: 'Organizacja lokalna "Bez domu"',
         goal: 'Pomoc dla osób nie posiadających miejsca zamieszkania',
         needs: 'ubrania, jedzenie, ciepłe koce'
     }

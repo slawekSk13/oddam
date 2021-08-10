@@ -4,10 +4,11 @@ import {Title} from "../components/Title/Title";
 import {Button} from "../components/Button/Button";
 import {Center} from "../components/Center/Center";
 import {Paragraph} from "../components/Paragraph/Paragraph";
+import {OrganizationsList} from "../components/OrganizationsList/OrganizationsList";
 
 import ReactPaginate from 'react-paginate';
 
-const Organisations = () => {
+const Organizations = () => {
     const [localFundations] = useState([...fundations]);
     const [localNgos] = useState([...ngos]);
     const [localOrganizations] = useState([...organizations]);
@@ -16,7 +17,7 @@ const Organisations = () => {
 
     const [orgType, setOrgType] = useState('fundation');
     const perPage = 3;
-    const pageCount = orgType === 'fundation' ? (localFundations.length / perPage) : (orgType === 'ngo' ? (ngos.length / perPage) : (localOrganizations.length / 3));
+    const pageCount = orgType === 'fundation' ? (Math.ceil(localFundations.length / perPage)) : (orgType === 'ngo' ? Math.ceil(ngos.length / perPage) : Math.ceil(localOrganizations.length / perPage));
 
     const handlePageChange = (data) => {
         let selected;
@@ -62,12 +63,8 @@ const Organisations = () => {
                     {orgType === 'local' && <Paragraph medium
                                                        text='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.'/>}
                 </div>
-                <div style={{width: '80%', height: '500px', border: '2px solid #2A1D32'}}>
-                    {toShow.map((element, i) => {
-                        return (
-                            <div key={i}>{element.name}</div>
-                        )
-                    })}
+                <div style={{width: '70%'}}>
+                    <OrganizationsList orgs={toShow} />
                     {pageCount > 1 && <ReactPaginate key={orgType}
                                                      pageCount={pageCount}
                                                      pageRangeDisplayed={2}
@@ -85,4 +82,4 @@ const Organisations = () => {
     )
 }
 
-export {Organisations}
+export {Organizations}
