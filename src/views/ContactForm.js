@@ -28,8 +28,9 @@ const ContactForm = () => {
             postToAPI(values);
             formik.resetForm();
             setSuccess(true);
-            setTimeout(() => {
+           const timeout = setTimeout(() => {
                 setSuccess(false);
+                clearTimeout(timeout);
             }, 5000);
         }
     });
