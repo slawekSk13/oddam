@@ -1,5 +1,6 @@
 import background from '../assets/Background-Contact-Form.jpg'
 import {Title} from "../components/Title/Title";
+import {Footer} from "./Footer";
 
 const Contact = () => {
     const style = {
@@ -26,6 +27,7 @@ const Contact = () => {
             <div style={formStyle} >
             <Title text='Skontaktuj się z nami' />
             </div>
+            <Footer />
         </div>
     )
 }
