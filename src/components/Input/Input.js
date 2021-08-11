@@ -3,10 +3,12 @@ import {ColorTheme} from '../../utilities/ColorTheme';
 import propTypes from 'prop-types';
 
 const Input = ({placeholder, name, value, onChange, onBlur, type, error, area}) => {
-    console.log(error);
     return (<ColorTheme.Consumer>
-            {colors => area ? <TextAreaStyled colors={colors} id={name} name={name} placeholder={placeholder} value={value} error={error} rows={4} onChange={onChange} onBlur={onBlur}/> :
-                <InputStyled colors={colors} id={name} name={name} placeholder={placeholder} value={value} onChange={onChange} onBlur={onBlur} error={error} type={type}/>}
+            {colors => area ?
+                <TextAreaStyled colors={colors} id={name} name={name} placeholder={placeholder} value={value}
+                                error={error} rows={4} onChange={onChange} onBlur={onBlur}/> :
+                <InputStyled colors={colors} id={name} name={name} placeholder={placeholder} value={value}
+                             onChange={onChange} onBlur={onBlur} error={error} type={type}/>}
         </ColorTheme.Consumer>
     )
 }

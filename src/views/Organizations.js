@@ -1,5 +1,5 @@
 import {fundations, ngos, organizations} from "../utilities/organizations";
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Title} from "../components/Title/Title";
 import {Button} from "../components/Button/Button";
 import {Center} from "../components/Center/Center";
@@ -40,8 +40,11 @@ const Organizations = () => {
 
     const handleCategoryChange = (category) => {
         setOrgType(category);
-        handlePageChange(0);
     }
+
+    useEffect(()=> {
+        handlePageChange(0);
+    }, [orgType])
 
     return (
         <section>

@@ -1,37 +1,45 @@
 import styled from "styled-components";
 
-const OrganizationsListItem = styled.li`
+const OrganizationsListItemStyled = styled.li`
   margin: 1rem 0;
   font-family: 'Merriweather', serif;
   list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   color: ${props => props.colors.fontColor};
   div {
     font-family: inherit;
-
-    h3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    div {
       font-family: inherit;
-      font-size: 1.6rem;
-      font-weight: 300;
-      margin-bottom: .5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      h3 {
+        display: block;
+        font-family: inherit;
+        font-size: 1.6rem;
+        font-weight: 300;
+        margin-bottom: .5rem;
+      }
+
+      h6 {
+        font-family: inherit;
+        font-weight: 300;
+        font-size: .9rem;
+        font-style: italic;
+      }
     }
-
-    h6 {
+    
+    p {
       font-family: inherit;
-      font-weight: 300;
       font-size: .9rem;
-      font-style: italic;
+      font-weight: 300;
     }
   }
 
-  p {
-    font-family: inherit;
-    font-size: .9rem;
-    font-weight: 300;
-  }
+  
 `;
 
-export {OrganizationsListItem}
+export {OrganizationsListItemStyled}

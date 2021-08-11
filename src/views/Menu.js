@@ -38,7 +38,7 @@ const Menu = () => {
                             offset={-100}
                             hashSpy={true} to="contact"><Button text='Kontakt'/></LinkScroll>
             </Navigation> : <Navigation>
-                <Link to="/#/"><Button text='Start'/></Link>
+                <Link to="/"><Button text='Start'/></Link>
             </Navigation>}
         </div>
 
