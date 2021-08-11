@@ -1,6 +1,19 @@
-# Getting Started with Create React App
+# Oddaj - zacznij pomagać
+React app for charity, where you can give away unnecessary for you stuff to people, who need it\
+Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Libraries, frameworks and tools
+
+1) JS ES6
+2) REACT
+3) Styleguidist
+4) Styled Components
+5) formik
+6) Yup
+7) react-paginate
+8) react-scroll
+9) Firebase
+
 
 ## Available Scripts
 
