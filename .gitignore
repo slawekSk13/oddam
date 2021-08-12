@@ -20,6 +20,7 @@
 
 # API
 /src/utilities/constants.js
+/src/utilities/firebaseConfig.js
 
 npm-debug.log*
 yarn-debug.log*

@@ -9,7 +9,7 @@ import * as Yup from 'yup';
 import {Button} from "../components/Button/Button";
 import {Link} from "react-router-dom";
 
-const Register = () => {
+const Register = ({handleRegister}) => {
 
     const formik = useFormik({
         initialValues: {
@@ -24,7 +24,8 @@ const Register = () => {
                 .oneOf([Yup.ref('password'), null], 'Hasło musi być jednakowe').required('Wprowadź potwierdzenie hasła')
         }),
         onSubmit: values => {
-            console.log(values)
+            // console.log(values);
+            handleRegister(values.email, values.password);
         }
     });
 
