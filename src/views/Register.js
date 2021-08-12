@@ -24,7 +24,6 @@ const Register = ({handleRegister}) => {
                 .oneOf([Yup.ref('password'), null], 'Hasło musi być jednakowe').required('Wprowadź potwierdzenie hasła')
         }),
         onSubmit: values => {
-            // console.log(values);
             handleRegister(values.email, values.password);
         }
     });

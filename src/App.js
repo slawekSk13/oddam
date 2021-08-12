@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Home} from "./views/Home";
 import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
@@ -9,10 +9,15 @@ import {Logout} from "./views/Logout";
 
 import firebase from "firebase/app";
 import "firebase/auth";
-// import "firebase/firestore";
 import {firebaseConfig} from "./utilities/firebaseConfig";
 
+import {setCookie, getCookie, deleteCookie} from "./utilities/cookie"
+
 function App() {
+    const [activeUser, setActiveUser] = useState(false);
+    useEffect(() => {
+setActiveUser({uid: getCookie('activeUserUid'), email: getCookie('activeUserEmail')});
+    }, [])
 
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -24,7 +29,10 @@ function App() {
         .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            console.log(user.uid);
+            setActiveUser({uid: user.uid, email: user.email});
+            setCookie('activeUserEmail', user.email, 60*60*3000);
+            setCookie('activeUserUid', user.uid, 60*60*3000);
+            window.location.href = '/';
             // ...
         })
         .catch((error) => {
@@ -33,12 +41,32 @@ function App() {
             console.log(errorCode, errorMessage)
             // ..
         });
+
+    const handleLogin = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            setActiveUser({uid: user.uid, email: user.email});
+            setCookie('activeUserEmail', user.email, 60*60*3000);
+            setCookie('activeUserUid', user.uid, 60*60*3000);
+            window.location.href = '/';
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage)
+        });
+    const handleLogout = () => {
+        setActiveUser(false);
+        deleteCookie('activeUserEmail');
+        deleteCookie('activeUserUid');
+    }
+
     return (
         <BrowserRouter>
-            <Menu/>
+            <Menu user={activeUser} handleLogout={handleLogout}/>
             <Switch>
                 <Route exact path="/"><Home /></Route>
-                <Route exact path="/logowanie"><Login /></Route>
+                <Route exact path="/logowanie"><Login handleLogin={handleLogin}/></Route>
                 <Route exact path="/rejestracja"><Register handleRegister={handleRegister} /></Route>
                 <Route exact path="/wylogowano"><Logout /></Route>
                 <Route>

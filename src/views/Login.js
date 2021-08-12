@@ -9,7 +9,7 @@ import * as Yup from 'yup';
 import {Button} from "../components/Button/Button";
 import {Link} from "react-router-dom";
 
-const Login = () => {
+const Login = ({handleLogin}) => {
 
     const formik = useFormik({
         initialValues: {
@@ -17,11 +17,11 @@ const Login = () => {
             password: '',
         },
         validationSchema: Yup.object({
-            email: Yup.string().email('Wprowadzono adres w niewłaściwym formacie').required('Muisz podać swój adres e-mail'),
+            email: Yup.string().email('Wprowadzono adres w niewłaściwym formacie').required('Musisz podać swój adres e-mail'),
             password: Yup.string().min(6, 'Hasło musi mieć minimum 6 znaków').required('Proszę podać hasło')
         }),
         onSubmit: values => {
-            console.log(values)
+            handleLogin(values.email, values.password);
         }
     });
 

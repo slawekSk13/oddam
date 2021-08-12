@@ -4,7 +4,7 @@ import {Link, useLocation} from 'react-router-dom';
 import {Link as LinkScroll} from 'react-scroll'
 
 
-const Menu = () => {
+const Menu = ({user, handleLogout}) => {
     const style = {
         zIndex: 4,
         width: '100%',
@@ -16,10 +16,14 @@ const Menu = () => {
     const location = useLocation();
 
     return (<div style={style}>
-            <Navigation>
+            {user.email ? <Navigation>
+                <Button small text={`Cześć ${user.email}`}/>
+                <Link to="/oddaj"><Button small text='Oddaj rzeczy'/></Link>
+                <Link to="/wylogowano"><Button onClick={handleLogout} small text='Wyloguj'/></Link>
+            </Navigation> : <Navigation>
                 <Link to="/logowanie"><Button small text='Zaloguj'/></Link>
                 <Link to="/rejestracja"><Button small text='Załóż konto'/></Link>
-            </Navigation>
+            </Navigation>}
             {location.pathname === '/' ? <Navigation>
                 <LinkScroll activeClass='active' spy={true} spyThrottle={500} smooth={true} duration={500}
                             offset={-100}
