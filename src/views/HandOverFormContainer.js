@@ -6,6 +6,7 @@ import {Center} from "../components/Center/Center";
 import {Button} from "../components/Button/Button";
 
 import {Formik} from "formik";
+import {Select} from "../components/Select/Select";
 
 const HandOverFormContainer = () => {
 
@@ -14,6 +15,14 @@ const HandOverFormContainer = () => {
     const style = {
         background: `url('${background}') right`,
         height: '750px'
+    }
+    const formStyle = {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: page === 1 ? 'center' : 'flex-start',
+        alignItems: 'flex-start',
+        marginLeft: '7rem',
+        height: '90%'
     }
     return (
         <>
@@ -40,11 +49,10 @@ const HandOverFormContainer = () => {
                                 height: '90%',
                                 paddingTop: '2rem'
                             }}>
-                                <p style={{marginLeft: "7.5rem", fontWeight: '100'}}>Krok {page}/4</p>
-                                <form>
-                                    <Center width='40%' height='100%' vertical>
+                                <p style={{marginLeft: "8rem", fontWeight: '100'}}>Krok {page}/4</p>
+                                <form style={formStyle}>
                                         {page === 1 && <div style={{textAlign: 'left'}}>
-                                            <h2 style={{marginLeft: "1.2rem"}}>Zaznacz co chcesz oddać:</h2>
+                                            <h2 style={{marginLeft: "1rem"}}>Zaznacz co chcesz oddać:</h2>
                                             <RadioButton name='type' onChange={e => values.type = e.target.value}
                                                          checked={values.type === 'ubrania, które nadają się do ponownego użycia'}/>
                                             <RadioButton name='type' label='ubrania do wyrzucenia'
@@ -60,7 +68,10 @@ const HandOverFormContainer = () => {
                                                          onChange={e => values.type = e.target.value}
                                                          checked={values.type === 'inne'}/>
                                         </div>}
-                                    </Center>
+                                        {page === 2 && <div style={{textAlign: 'left'}}>
+                                            <h2 style={{marginLeft: "1rem", marginTop: '2rem'}}>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h2>
+                                            <Select />
+                                        </div>}
                                 </form>
                                 <div style={{marginLeft: "7rem"}}>
                                     {page > 1 && <Button text='Wstecz' width='15%' border
