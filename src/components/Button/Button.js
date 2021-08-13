@@ -37,7 +37,7 @@ Button.defaultProps = {
     big: false,
     medium: false,
     small: false,
-    width: '',
+    width: 'auto',
     onClick: (e) => defaultFunc(e),
     border: false
 }
