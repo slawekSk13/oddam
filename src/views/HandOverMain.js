@@ -12,7 +12,7 @@ const HandOverMain = () => {
                 width: '40%',
                 margin: '0 0 0 950px'
             }}>
-                <Center width='100%' height='853px' vertical>
+                <Center width='100%' height='769px' vertical>
                     <Title text='Oddaj rzeczy, których już nie chcesz' anotherText='POTRZEBUJĄCYM'>
                         <h3 className='handOver-title'>Wystarczą 4 proste kroki:</h3>
                         <HandOverSquares />
