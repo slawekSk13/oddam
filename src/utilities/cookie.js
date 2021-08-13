@@ -1,7 +1,7 @@
 const setCookie = (cookieName, cookieValue, expires) => {
-    let expireTime = new Date();
-    expireTime.setTime(expireTime.getTime() + (expires * 1000))
-    document.cookie = `${cookieName}=${cookieValue};expires${expireTime.toUTCString()};path=/`;
+    // let expireTime = new Date();
+    // expireTime.setTime(expireTime.getTime() + (expires * 1000))
+    document.cookie = `${cookieName}=${cookieValue};Max-Age=${expires};path=/`;
 }
 
 const getCookie = (cookieName) => {

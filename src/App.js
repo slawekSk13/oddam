@@ -11,13 +11,19 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import {firebaseConfig} from "./utilities/firebaseConfig";
 
-import {setCookie, getCookie, deleteCookie} from "./utilities/cookie"
+import {deleteCookie, getCookie, setCookie} from "./utilities/cookie"
 
 function App() {
-    const [activeUser, setActiveUser] = useState(false);
+    const [activeUser, setActiveUser] = useState({});
+
     useEffect(() => {
-setActiveUser({uid: getCookie('activeUserUid'), email: getCookie('activeUserEmail')});
-    }, [])
+        setActiveUser({uid: getCookie('activeUserUid'), email: getCookie('activeUserEmail')});
+        let timer1 = setInterval(() => {
+            setActiveUser({uid: getCookie('activeUserUid'), email: getCookie('activeUserEmail')});
+        }, 1000);
+        return () => clearTimeout(timer1);
+    }, []);
+
 
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -30,8 +36,8 @@ setActiveUser({uid: getCookie('activeUserUid'), email: getCookie('activeUserEmai
             // Signed in
             const user = userCredential.user;
             setActiveUser({uid: user.uid, email: user.email});
-            setCookie('activeUserEmail', user.email, 60*60*3000);
-            setCookie('activeUserUid', user.uid, 60*60*3000);
+            setCookie('activeUserEmail', user.email, 60 * 60);
+            setCookie('activeUserUid', user.uid, 60 * 60);
             window.location.href = '/';
             // ...
         })
@@ -46,8 +52,8 @@ setActiveUser({uid: getCookie('activeUserUid'), email: getCookie('activeUserEmai
         .then((userCredential) => {
             const user = userCredential.user;
             setActiveUser({uid: user.uid, email: user.email});
-            setCookie('activeUserEmail', user.email, 60*60*3000);
-            setCookie('activeUserUid', user.uid, 60*60*3000);
+            setCookie('activeUserEmail', user.email, 60 * 60);
+            setCookie('activeUserUid', user.uid, 60 * 60);
             window.location.href = '/';
         })
         .catch((error) => {
@@ -61,14 +67,15 @@ setActiveUser({uid: getCookie('activeUserUid'), email: getCookie('activeUserEmai
         deleteCookie('activeUserUid');
     }
 
+
     return (
         <BrowserRouter>
             <Menu user={activeUser} handleLogout={handleLogout}/>
             <Switch>
-                <Route exact path="/"><Home /></Route>
+                <Route exact path="/"><Home/></Route>
                 <Route exact path="/logowanie"><Login handleLogin={handleLogin}/></Route>
-                <Route exact path="/rejestracja"><Register handleRegister={handleRegister} /></Route>
-                <Route exact path="/wylogowano"><Logout /></Route>
+                <Route exact path="/rejestracja"><Register handleRegister={handleRegister}/></Route>
+                <Route exact path="/wylogowano"><Logout/></Route>
                 <Route>
                     <Redirect to='/'/>
                 </Route>
