@@ -3,7 +3,7 @@ import {ColorTheme} from "../../utilities/ColorTheme";
 import image from '../../assets/Decoration.svg';
 import propTypes from 'prop-types';
 
-const Title = ({text, anotherText}) => {
+const Title = ({text, anotherText, children}) => {
     const divStyle = {
         display: 'flex',
         flexDirection: 'column',
@@ -20,6 +20,7 @@ const Title = ({text, anotherText}) => {
                 <TitleStyled colors={colors}>{text}</TitleStyled>
                 <TitleStyled colors={colors}>{anotherText}</TitleStyled>
                 <img style={imgStyle} src={image} alt='decoration'/>
+                {children}
             </div>)}
         </ColorTheme.Consumer>
     )

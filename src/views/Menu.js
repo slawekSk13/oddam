@@ -18,7 +18,7 @@ const Menu = ({user, handleLogout}) => {
     return (<div style={style}>
             {user.email ? <Navigation>
                 <Button small text={`Cześć ${user.email}`}/>
-                <Link to="/oddaj"><Button small text='Oddaj rzeczy'/></Link>
+                <Link to="/oddaj-rzeczy"><Button small text='Oddaj rzeczy'/></Link>
                 <Link to="/wylogowano"><Button onClick={handleLogout} small text='Wyloguj'/></Link>
             </Navigation> : <Navigation>
                 <Link to="/logowanie"><Button small text='Zaloguj'/></Link>

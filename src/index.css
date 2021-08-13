@@ -86,3 +86,8 @@ padding: 4rem 0;
   padding: 2rem;
   text-align: left;
 }
+
+.handOver-title {
+  font-weight: 300;
+  font-size: 2rem;
+}

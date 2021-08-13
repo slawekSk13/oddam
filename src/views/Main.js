@@ -25,7 +25,7 @@ const Main = () => {
             <div style={style}>
                 <Title text='Zacznij pomagać!' anotherText=' Oddaj niechciane rzeczy w zaufane ręce'/>
                 <Center width='auto'>
-                    <Link to="/logowanie"><Button text='oddaj rzeczy' big/></Link>
+                    <Link to="/oddaj-rzeczy"><Button text='oddaj rzeczy' big/></Link>
                     <Link to="/logowanie"><Button text='Zorganizuj zbiórkę' big/></Link>
                 </Center>
             </div>

@@ -12,10 +12,10 @@ import "firebase/auth";
 import {firebaseConfig} from "./utilities/firebaseConfig";
 
 import {deleteCookie, getCookie, setCookie} from "./utilities/cookie"
+import {HandOver} from "./views/HandOver";
 
 function App() {
     const [activeUser, setActiveUser] = useState({});
-
     useEffect(() => {
         setActiveUser({uid: getCookie('activeUserUid'), email: getCookie('activeUserEmail')});
         let timer1 = setInterval(() => {
@@ -76,6 +76,7 @@ function App() {
                 <Route exact path="/logowanie"><Login handleLogin={handleLogin}/></Route>
                 <Route exact path="/rejestracja"><Register handleRegister={handleRegister}/></Route>
                 <Route exact path="/wylogowano"><Logout/></Route>
+                <Route exact path="/oddaj-rzeczy"><HandOver user={activeUser}/></Route>
                 <Route>
                     <Redirect to='/'/>
                 </Route>
