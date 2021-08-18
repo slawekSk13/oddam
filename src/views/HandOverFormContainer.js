@@ -2,11 +2,10 @@ import {HandOverFormHeader} from "../components/HandOverFormHeader/HandOverFormH
 import background from '../assets/Background-Form.jpg';
 import {useState} from "react";
 import {RadioButton} from "../components/RadioButton/RadioButton";
-import {Center} from "../components/Center/Center";
 import {Button} from "../components/Button/Button";
 
-import {Formik} from "formik";
-import {Select} from "../components/Select/Select";
+import {Field, Formik} from "formik";
+import {CustomSelect} from "../components/CustomSelect/CustomSelect";
 
 const HandOverFormContainer = () => {
 
@@ -37,7 +36,8 @@ const HandOverFormContainer = () => {
             </div>
             <div style={style}>
                 <Formik initialValues={{
-                    type: 'ubrania, które nadają się do ponownego użycia'
+                    type: 'ubrania, które nadają się do ponownego użycia',
+                    amount: 0
                 }} onChange={values => console.log(values)}>
                     {({values}) => {
                         console.log(values);
@@ -51,27 +51,29 @@ const HandOverFormContainer = () => {
                             }}>
                                 <p style={{marginLeft: "8rem", fontWeight: '100'}}>Krok {page}/4</p>
                                 <form style={formStyle}>
-                                        {page === 1 && <div style={{textAlign: 'left'}}>
-                                            <h2 style={{marginLeft: "1rem"}}>Zaznacz co chcesz oddać:</h2>
-                                            <RadioButton name='type' onChange={e => values.type = e.target.value}
-                                                         checked={values.type === 'ubrania, które nadają się do ponownego użycia'}/>
-                                            <RadioButton name='type' label='ubrania do wyrzucenia'
-                                                         onChange={e => values.type = e.target.value}
-                                                         checked={values.type === 'ubrania do wyrzucenia'}/>
-                                            <RadioButton name='type' label='zabawki'
-                                                         onChange={e => values.type = e.target.value}
-                                                         checked={values.type === 'zabawki'}/>
-                                            <RadioButton name='type' label='książki'
-                                                         onChange={e => values.type = e.target.value}
-                                                         checked={values.type === 'książki'}/>
-                                            <RadioButton name='type' label='inne'
-                                                         onChange={e => values.type = e.target.value}
-                                                         checked={values.type === 'inne'}/>
-                                        </div>}
-                                        {page === 2 && <div style={{textAlign: 'left'}}>
-                                            <h2 style={{marginLeft: "1rem", marginTop: '2rem'}}>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h2>
-                                            <Select />
-                                        </div>}
+                                    {page === 1 && <div style={{textAlign: 'left'}}>
+                                        <h2 style={{marginLeft: "1rem"}}>Zaznacz co chcesz oddać:</h2>
+                                        <RadioButton name='type' onChange={e => values.type = e.target.value}
+                                                     checked={values.type === 'ubrania, które nadają się do ponownego użycia'}/>
+                                        <RadioButton name='type' label='ubrania do wyrzucenia'
+                                                     onChange={e => values.type = e.target.value}
+                                                     checked={values.type === 'ubrania do wyrzucenia'}/>
+                                        <RadioButton name='type' label='zabawki'
+                                                     onChange={e => values.type = e.target.value}
+                                                     checked={values.type === 'zabawki'}/>
+                                        <RadioButton name='type' label='książki'
+                                                     onChange={e => values.type = e.target.value}
+                                                     checked={values.type === 'książki'}/>
+                                        <RadioButton name='type' label='inne'
+                                                     onChange={e => values.type = e.target.value}
+                                                     checked={values.type === 'inne'}/>
+                                    </div>}
+                                    {page === 2 && <div style={{textAlign: 'left'}}>
+                                        <h2 style={{margin: "2rem 0"}}>Podaj liczbę 60l worków, w które spakowałeś/aś
+                                            rzeczy:</h2>
+                                        <Field name='amount' component={CustomSelect}
+                                               onChange={e => values.amount = parseInt(e)}/>
+                                    </div>}
                                 </form>
                                 <div style={{marginLeft: "7rem"}}>
                                     {page > 1 && <Button text='Wstecz' width='15%' border

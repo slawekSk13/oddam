@@ -1,21 +1,26 @@
 import styled from 'styled-components'
 
 const CustomSelectStyled = styled.div`
+  display: flex;
   position: relative;
-  user-select: none;
   width: 100%;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 100;
   .select {
     position: relative;
+    left: 1rem;
     display: flex;
     flex-direction: column;
     border: 1px solid ${props => props.colors.fontColor}; 
+    width: 20rem;
   }
   .select__trigger {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0.2rem 1rem;
     font-size: 1rem;
     font-weight: 300;
     color: ${props => props.colors.fontColor};
@@ -27,7 +32,7 @@ const CustomSelectStyled = styled.div`
     display: block;
     text-align: center;
     top: 120%;
-    left: 90%;
+    left: 80%;
     right: -1px;
     border: 1px solid ${props => props.colors.fontColor};
     background: transparent;
@@ -37,7 +42,7 @@ const CustomSelectStyled = styled.div`
   .custom-option {
     position: relative;
     display: block;
-    padding: 1rem;
+    padding: 0.2rem 0;
     font-size: 1rem;
     font-weight: 300;
     color: ${props => props.colors.fontColor};
@@ -48,32 +53,28 @@ const CustomSelectStyled = styled.div`
     cursor: pointer;
     background-color: ${props => props.colors.accentColor};
   }
-  .custom-option.selected {
-    color: #ffffff;
-    background-color: #305c91;
-  }
-
+ 
   .arrow {
     position: relative;
-    height: 2rem;
-    width: 2rem;
+    height: 1rem;
+    width: 1rem;
   }
   .arrow::before, .arrow::after {
     content: "";
     position: absolute;
     bottom: 0;
-    width: 0.4rem;
+    width: 0.2rem;
     height: 100%;
     transition: all 0.5s;
   }
 
   .arrow::before {
-    left: -10px;
+    left: -5px;
     transform: ${props => props.open ? 'rotate(45deg)' : 'rotate(-45deg)'};
     background-color: ${props => props.colors.fontColor};
   }
   .arrow::after {
-    left: 10px;
+    left: 5px;
     transform: ${props => props.open ? 'rotate(-45deg)' : 'rotate(45deg)'};
     background-color: ${props => props.colors.fontColor};
   }
