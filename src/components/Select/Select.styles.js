@@ -19,7 +19,9 @@ select {
   }
   option {
     font-weight: 100;
+    width: 1rem;
     padding: .4rem;
+    background: transparent;
   }
 }
 `;
