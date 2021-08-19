@@ -2,19 +2,25 @@ import {CustomSelectStyled} from './CustomSelect.styles';
 import propTypes from 'prop-types';
 import {ColorTheme} from '../../utilities/ColorTheme'
 import {useState} from "react";
+import {useField} from "formik";
 
-const CustomSelect = ({values, label, field, onChange}) => {
+const CustomSelect = ({values, label, field, onChange, amountError, handleAmountError}) => {
     const [open, setOpen] = useState(false);
 
     window.addEventListener('click', function(e) {
         const select = document.querySelector('.select')
-        if (!select.contains(e.target)) {
-            setOpen(false);
+        if (select) {
+            if (!select.contains(e.target)) {
+                setOpen(false);
+            }
         }
     });
 
     return (<ColorTheme.Consumer>
-            {(colors => <CustomSelectStyled colors={colors} open={open} onClick={() => setOpen(prev => !prev)}>
+            {(colors => <CustomSelectStyled colors={colors} open={open} onClick={() => {
+                setOpen(prev => !prev);
+                handleAmountError();
+            }}>
                 {label}
                 <div className="select">
                     <div className="select__trigger"><span>{field.value ? field.value : '— wybierz —'}</span>
@@ -22,6 +28,7 @@ const CustomSelect = ({values, label, field, onChange}) => {
                     </div>
                     {open && <OptionGroup values={values} valueHandle={onChange}/>}
                 </div>
+                {(amountError && field.value === 0 && !open) && <div className='error'>Proszę podać liczbę worków</div> }
             </CustomSelectStyled>)}
         </ColorTheme.Consumer>
     )
@@ -37,12 +44,18 @@ CustomSelect.propTypes = {
     /** values and names for options */
     values: propTypes.array,
     /** description of select */
-    label: propTypes.string
+    label: propTypes.string,
+    /** field comes from formik and gives access to form state */
+    field: propTypes.object,
+    /** function to change formik form state */
+    onChange: propTypes.func
 }
 
 CustomSelect.defaultProps = {
     values: [1, 2, 3, 4, 5, 6],
-    label: 'Liczba 60l worków:'
+    label: 'Liczba 60l worków:',
+    field: {value: 0},
+    onChange: x => console.log(x)
 }
 
 export {CustomSelect}

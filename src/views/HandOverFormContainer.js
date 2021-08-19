@@ -10,6 +10,8 @@ import {CustomSelect} from "../components/CustomSelect/CustomSelect";
 const HandOverFormContainer = () => {
 
     const [page, setPage] = useState(1);
+    const [amountError, setAmountError] = useState(false);
+
 
     const style = {
         background: `url('${background}') right`,
@@ -38,9 +40,15 @@ const HandOverFormContainer = () => {
                 <Formik initialValues={{
                     type: 'ubrania, które nadają się do ponownego użycia',
                     amount: 0
-                }} onChange={values => console.log(values)}>
-                    {({values}) => {
-                        console.log(values);
+                }} onChange={values => console.log(values)}
+                >
+                    {formik => {
+                        const {values, touched, errors} = formik;
+
+                        if (values.amount > 0) {
+                            setAmountError(false);
+                        }
+
                         return (
                             <div style={{
                                 display: 'flex',
@@ -72,13 +80,19 @@ const HandOverFormContainer = () => {
                                         <h2 style={{margin: "2rem 0"}}>Podaj liczbę 60l worków, w które spakowałeś/aś
                                             rzeczy:</h2>
                                         <Field name='amount' component={CustomSelect}
-                                               onChange={e => values.amount = parseInt(e)}/>
+                                               onChange={e => values.amount = parseInt(e)} amountError={amountError} handleAmountError={() => setAmountError(true)}/>
                                     </div>}
                                 </form>
                                 <div style={{marginLeft: "7rem"}}>
                                     {page > 1 && <Button text='Wstecz' width='15%' border
                                                          onClick={() => setPage(prev => prev - 1)}/>}
-                                    <Button text='Dalej' width='15%' border onClick={() => setPage(prev => prev + 1)}/>
+                                    <Button text='Dalej' width='15%' border onClick={() => {
+                                        if (values.amount === 0 && page === 2) {
+                                            setAmountError(true);
+                                        } else {
+                                            setPage(prev => prev + 1);
+                                        }
+                                    }}/>
                                 </div>
                             </div>
                         )

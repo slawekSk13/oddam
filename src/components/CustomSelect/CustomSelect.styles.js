@@ -78,6 +78,11 @@ const CustomSelectStyled = styled.div`
     transform: ${props => props.open ? 'rotate(-45deg)' : 'rotate(45deg)'};
     background-color: ${props => props.colors.fontColor};
   }
+  
+  .error {
+    left: 325px;
+    top: 35px;
+  }
 `;
 
 export {CustomSelectStyled}
