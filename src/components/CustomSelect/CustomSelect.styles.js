@@ -7,6 +7,7 @@ const CustomSelectStyled = styled.div`
   align-items: center;
   font-size: 1.4rem;
   font-weight: 100;
+  left: ${props => props.label ? '0' : '-1rem'};
   .select {
     position: relative;
     left: 1rem;
@@ -30,19 +31,19 @@ const CustomSelectStyled = styled.div`
   .custom-options {
     position: absolute;
     display: block;
-    text-align: center;
+    text-align: ${props => props.big ? 'left' : 'center'};
     top: 120%;
-    left: 80%;
+    left: ${props => props.big ? '-1px' : '80%'};
     right: -1px;
     border: 1px solid ${props => props.colors.fontColor};
-    background: transparent;
+    background: ${props => props.colors.formBackgroundColor};
     z-index: 2;
   }
   
   .custom-option {
     position: relative;
     display: block;
-    padding: 0.2rem 0;
+    padding: 0.2rem 1rem;
     font-size: 1rem;
     font-weight: 300;
     color: ${props => props.colors.fontColor};
@@ -80,7 +81,7 @@ const CustomSelectStyled = styled.div`
   }
   
   .error {
-    left: 325px;
+    left: ${props => props.big ? '137px' : '325px' }; 
     top: 35px;
   }
 `;

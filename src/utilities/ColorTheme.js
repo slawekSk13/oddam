@@ -7,7 +7,8 @@ export const ColorThemeObj = {
     fontColor: "#3C3C3C",
     backgroundSecondaryColor: "#737373",
     placeholderColor: "#3C3C3C26",
-    errorColor: '#E2071C'
+    errorColor: '#E2071C',
+    formBackgroundColor: "#eeedeb"
 };
 
 export const ColorTheme = React.createContext({

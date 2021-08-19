@@ -10,7 +10,8 @@ import {CustomSelect} from "../components/CustomSelect/CustomSelect";
 const HandOverFormContainer = () => {
 
     const [page, setPage] = useState(1);
-    const [amountError, setAmountError] = useState(false);
+    const [amountError, setAmountError] = useState('');
+    const [locationError, setLocationError] = useState('');
 
 
     const style = {
@@ -39,14 +40,15 @@ const HandOverFormContainer = () => {
             <div style={style}>
                 <Formik initialValues={{
                     type: 'ubrania, które nadają się do ponownego użycia',
-                    amount: 0
+                    amount: 0,
+                    location: ''
                 }} onChange={values => console.log(values)}
                 >
                     {formik => {
                         const {values, touched, errors} = formik;
 
                         if (values.amount > 0) {
-                            setAmountError(false);
+                            setAmountError('');
                         }
 
                         return (
@@ -79,8 +81,13 @@ const HandOverFormContainer = () => {
                                     {page === 2 && <div style={{textAlign: 'left'}}>
                                         <h2 style={{margin: "2rem 0"}}>Podaj liczbę 60l worków, w które spakowałeś/aś
                                             rzeczy:</h2>
-                                        <Field name='amount' component={CustomSelect}
-                                               onChange={e => values.amount = parseInt(e)} amountError={amountError} handleAmountError={() => setAmountError(true)}/>
+                                        <Field name='amount' component={CustomSelect} label='Liczba 60l worków:'
+                                               onChange={e => values.amount = parseInt(e)} error={amountError} handleError={() => setAmountError('Proszę podać liczbę worków')}/>
+                                    </div>}
+                                    {page === 3 && <div style={{textAlign: 'left'}}>
+                                        <h2 style={{margin: "2rem 0"}}>Lokalizacja:</h2>
+                                        <Field name='location' component={CustomSelect} big values={['Poznań', 'Warszawa', 'Kraków', 'Wrocław', 'Katowice']}
+                                               onChange={e => values.location = e} error={locationError} handleError={() => setLocationError('Proszę wybrać lokalizację')}/>
                                     </div>}
                                 </form>
                                 <div style={{marginLeft: "7rem"}}>
@@ -88,7 +95,7 @@ const HandOverFormContainer = () => {
                                                          onClick={() => setPage(prev => prev - 1)}/>}
                                     <Button text='Dalej' width='15%' border onClick={() => {
                                         if (values.amount === 0 && page === 2) {
-                                            setAmountError(true);
+                                            setAmountError('Proszę podać liczbę worków');
                                         } else {
                                             setPage(prev => prev + 1);
                                         }

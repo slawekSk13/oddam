@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import {ColorTheme} from '../../utilities/ColorTheme'
 import {useState} from "react";
 
-const CustomSelect = ({values, label, field, onChange, amountError, handleAmountError}) => {
+const CustomSelect = ({values, label, field, onChange, error, handleError, big}) => {
     const [open, setOpen] = useState(false);
 
     window.addEventListener('click', function(e) {
@@ -16,9 +16,9 @@ const CustomSelect = ({values, label, field, onChange, amountError, handleAmount
     });
 
     return (<ColorTheme.Consumer>
-            {(colors => <CustomSelectStyled colors={colors} open={open} onClick={() => {
+            {(colors => <CustomSelectStyled big={big} label={label} colors={colors} open={open} onClick={() => {
                 setOpen(prev => !prev);
-                handleAmountError();
+                handleError();
             }}>
                 {label}
                 <div className="select">
@@ -27,7 +27,7 @@ const CustomSelect = ({values, label, field, onChange, amountError, handleAmount
                     </div>
                     {open && <OptionGroup values={values} valueHandle={onChange}/>}
                 </div>
-                {(amountError && field.value === 0 && !open) && <div className='error'>Proszę podać liczbę worków</div> }
+                {(error && !field.value) && <div className='error'>{error}</div> }
             </CustomSelectStyled>)}
         </ColorTheme.Consumer>
     )
@@ -49,18 +49,18 @@ CustomSelect.propTypes = {
     /** function to change formik form state */
     onChange: propTypes.func,
     /** errors control */
-    amountError: propTypes.bool,
+    error: propTypes.bool,
     /** function to change errors */
-    handleAmountError: propTypes.func
+    handleError: propTypes.func
 }
 
 CustomSelect.defaultProps = {
     values: [1, 2, 3, 4, 5, 6],
-    label: 'Liczba 60l worków:',
+    label: '',
     field: {value: 0},
     onChange: x => console.log(x),
-    amountError: false,
-    handleAmountError: e => console.log(e)
+    error: false,
+    handleError: e => console.log(e)
 }
 
 export {CustomSelect}
