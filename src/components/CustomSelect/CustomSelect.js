@@ -2,7 +2,6 @@ import {CustomSelectStyled} from './CustomSelect.styles';
 import propTypes from 'prop-types';
 import {ColorTheme} from '../../utilities/ColorTheme'
 import {useState} from "react";
-import {useField} from "formik";
 
 const CustomSelect = ({values, label, field, onChange, amountError, handleAmountError}) => {
     const [open, setOpen] = useState(false);
@@ -48,14 +47,20 @@ CustomSelect.propTypes = {
     /** field comes from formik and gives access to form state */
     field: propTypes.object,
     /** function to change formik form state */
-    onChange: propTypes.func
+    onChange: propTypes.func,
+    /** errors control */
+    amountError: propTypes.bool,
+    /** function to change errors */
+    handleAmountError: propTypes.func
 }
 
 CustomSelect.defaultProps = {
     values: [1, 2, 3, 4, 5, 6],
     label: 'Liczba 60l worków:',
     field: {value: 0},
-    onChange: x => console.log(x)
+    onChange: x => console.log(x),
+    amountError: false,
+    handleAmountError: e => console.log(e)
 }
 
 export {CustomSelect}
